@@ -2,6 +2,7 @@ let balance = 0; //This is Joes bank accout balance
 let outstandingLoan = 0;
 let isRepayLoan = false;
 let pay = 0;
+const computerArray = [];
 
 function incrementPay(){
     pay += 100;
@@ -88,25 +89,19 @@ function repayLoan(){
    
 }
 
-const jokesArray = [];
-
-fetch("https://v2.jokeapi.dev/joke/Programming?blacklistFlags=religious,political,racist,sexist,explicit&amount=10")
+//Fetching api and sending data to store
+fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
 .then(function(response)
-{
+{    
     return response.json()
 })
-.then(function(jokeResultObj)
+.then(function(getArray)
 {
-    for (joke of jokeResultObj.jokes) 
-    {
-        jokesArray.push(joke);
+    for (computer of getArray) {
+        computerArray.push(computer);
     }
 })
 
-console.log(jokesArray);
 
-function getJoke()
-{
-    return document.getElementById("currentJoke").innerText = jokesArray[1].joke;
-}
+
  

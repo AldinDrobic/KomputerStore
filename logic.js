@@ -64,7 +64,6 @@ function getLoan()
                 document.getElementById("outstandingLoan").innerText = outstandingLoan; //Adding loan to outstanding loan.
                 document.getElementById("balance").innerText = balance;
             }              
-            console.log(isRepayLoan);
     }
     else 
     {
@@ -83,13 +82,31 @@ function repayLoan(){
         pay -= outstandingLoan;
         outstandingLoan = 0;
         isRepayLoan = false; //Set bool to true so that user cant make new loan until this one is repaid.
-        setPay();
-        return document.getElementById("outstandingLoan").innerText = outstandingLoan;       
+        document.getElementById("pay").innerText = pay;
+        document.getElementById("outstandingLoan").innerText = outstandingLoan;       
     }
    
 }
 
-function setPay()//Setting value of pay
-{ 
-    return document.getElementById("pay").innerHTML = pay;
+const jokesArray = [];
+
+fetch("https://v2.jokeapi.dev/joke/Programming?blacklistFlags=religious,political,racist,sexist,explicit&amount=10")
+.then(function(response)
+{
+    return response.json()
+})
+.then(function(jokeResultObj)
+{
+    for (joke of jokeResultObj.jokes) 
+    {
+        jokesArray.push(joke);
+    }
+})
+
+console.log(jokesArray);
+
+function getJoke()
+{
+    return document.getElementById("currentJoke").innerText = jokesArray[1].joke;
 }
+ 

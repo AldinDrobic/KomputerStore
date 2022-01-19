@@ -107,12 +107,19 @@ fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
     for (computer of computerArray) 
     {         
         const computerElement = document.createElement("option");
+        computerElement.value = computer.id;//We mabye don't need this.
         computerElement.appendChild(document.createTextNode(computer.title));
         selectComputerElement.appendChild(computerElement);  
-        document.getElementById("computerFeatures").innerText = computer.specs;           
+        document.getElementById("computerFeatures").innerText = computerArray[selectComputerElement.value-1].specs;   
     }
-    
+
 })
+
+function setSelectedComputer()
+{
+    document.getElementById("computerFeatures").innerText = computerArray[selectComputerElement.value-1].specs; 
+    
+}
 
 
 //FORTSÄTT MED ATT LAGRA DATA PÅ STORE. BÖRJA MED SELECT LIST

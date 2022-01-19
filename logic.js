@@ -124,8 +124,23 @@ function setSelectedComputer()
     document.getElementById("computerImage").src = "https://noroff-komputer-store-api.herokuapp.com/"  + computerArray[selectComputerElement.value-1].image;
 }
 
-
-//FORTSÄTT MED ATT LAGRA DATA PÅ STORE. BÖRJA MED SELECT LIST
+function buyComputer()
+{
+    if(balance >= computerArray[selectComputerElement.value-1].price && isRepayLoan == false)
+    {
+        alert("You successfully bought a computer.")
+        balance -= computerArray[selectComputerElement.value-1].price;
+        document.getElementById("balance").innerText = balance;
+    }
+    else if (isRepayLoan == true)
+    {
+        alert("You must repay your loan before you buy a computer.")
+    }
+    else
+    {
+        alert("You have insufficient balance")
+    }
+}
 
 
 

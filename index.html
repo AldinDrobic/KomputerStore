@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="indexStyle.css">
 </head>
 <body>
-    <div id="Bank">
+    
+    <div class="flex-container">
+     <div class="flex-child" id="Bank">
         <h1>Bank account</h1>
         <h3>Joe Banker</h3>
         <b>Balance:</b> <b id="balance">0</b> <b>kr</b> <br><br>
@@ -19,10 +21,9 @@
         <b>Outstanding loan</b> <b id="outstandingLoan">0</b> <b>kr</b>  <br>
         <button id="loanBtn" onclick="repayLoan()">Repay loan</button>  
         </div>
-    
-        </div>
+     </div>
 
-        <div id="Work">
+        <div class="flex-child" id="Work">
             <h1>Work</h1>
             <b>Pay:</b> <b id="pay">0</b> <b>kr</b> <br><br>   
         
@@ -31,6 +32,7 @@
         
         </div>
 
+        <div class="flex-child">
         <div id="StorePreview">
             <h1>Store</h1>
             <select name="computer" id="computerListId" onchange="setSelectedComputer()"></select> <br><br>
@@ -43,12 +45,13 @@
             <h2 id="computerTitle">Titel</h2>
             <b id="computerDescription">Description</b><br>
             <b id="computerPrice">Price</b> <b>kr</b><br><br>
-            <img id="computerImage">
+            <img class="imageComputer" id="computerImage">
             <button onclick="buyComputer()">Buy now</button>
     
             <br><br>
         </div>
-
+    </div>
+    </div>
         <script src="logic.js"></script>
 </body>
 </html>

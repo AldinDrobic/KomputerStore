@@ -1,4 +1,8 @@
- #loanBtn
+body
+{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#outstandingLoanDiv
 {
     display: none;
 }
@@ -19,4 +23,25 @@
     height: 200px;
     width: 300px;
 }
+.btn
+{
+    border: none;
+    color: black;
+    padding: 5px 20px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+/* Buttons */
+#getLoanBtn
+{
+    background-color: #5ed410; /* Green */
+}
+
+
 

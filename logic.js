@@ -17,6 +17,7 @@ function transferPayToBank()
         if (isRepayLoan){
             let reservedDeduction = 0.1 * pay; //Deduction is where the 10% of the pay amount is saved so it can be reserved for the outstanding loan.
             outstandingLoan -= reservedDeduction; //Here is where the deduction is subtracted with the outstanding loan.
+            pay -= reservedDeduction; //Drag of the 10% deduction from pay beacuse the 10% went to the outstanding loan.
             if (outstandingLoan < 0) //If deduction is bigger than outstanding loan (outstanding loan = 10 && reservedDeduction == 15) then it will be negative. If this happens we want to return the money that is overflowing to Joe.
             {
                 pay += (outstandingLoan * (-1)) //Multiply with -1 so the negative number will be positive. Then add it to the bank.                
@@ -24,7 +25,7 @@ function transferPayToBank()
             if(outstandingLoan <= 0)//If we don't have any loan we will set the bool to false here.
             {
                 isRepayLoan = false; //Set bool to false so the user can make a new loan.
-                document.getElementById("loanBtn").style.display = "none";
+                document.getElementById("outstandingLoanDiv").style.display = "none";
             }
         }
     }
@@ -66,7 +67,7 @@ function getLoan()
                 isRepayLoan = true; //Set bool to true so that user cant make new loan until this one is repaid.
                 document.getElementById("outstandingLoan").innerText = outstandingLoan; //Adding loan to outstanding loan.
                 document.getElementById("balance").innerText = balance;
-                document.getElementById("loanBtn").style.display = "block";
+                document.getElementById("outstandingLoanDiv").style.display = "block";
 
             }              
     }
@@ -89,7 +90,7 @@ function repayLoan(){
         isRepayLoan = false; //Set bool to true so that user cant make new loan until this one is repaid.
         document.getElementById("pay").innerText = pay;
         document.getElementById("outstandingLoan").innerText = outstandingLoan;       
-        document.getElementById("loanBtn").style.display = "none";
+        document.getElementById("outstandingLoanDiv").style.display = "none";
     }
    
 }

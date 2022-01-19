@@ -24,6 +24,7 @@ function transferPayToBank()
             if(outstandingLoan <= 0)//If we don't have any loan we will set the bool to false here.
             {
                 isRepayLoan = false; //Set bool to false so the user can make a new loan.
+                document.getElementById("loanBtn").style.display = "none";
             }
         }
     }
@@ -65,6 +66,8 @@ function getLoan()
                 isRepayLoan = true; //Set bool to true so that user cant make new loan until this one is repaid.
                 document.getElementById("outstandingLoan").innerText = outstandingLoan; //Adding loan to outstanding loan.
                 document.getElementById("balance").innerText = balance;
+                document.getElementById("loanBtn").style.display = "block";
+
             }              
     }
     else 
@@ -86,6 +89,7 @@ function repayLoan(){
         isRepayLoan = false; //Set bool to true so that user cant make new loan until this one is repaid.
         document.getElementById("pay").innerText = pay;
         document.getElementById("outstandingLoan").innerText = outstandingLoan;       
+        document.getElementById("loanBtn").style.display = "none";
     }
    
 }

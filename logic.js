@@ -3,7 +3,7 @@ let outstandingLoan = 0;
 let isRepayLoan = false;
 let pay = 0;
 const computerArray = [];
-const select = document.getElementById("arr"); 
+const selectComputerElement = document.getElementById("computerListId"); 
 
 function incrementPay(){
     pay += 100;
@@ -106,15 +106,14 @@ fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
 {
     for (computer of computerArray) 
     {         
-    const computerElement = document.createElement("option");
-    computerElement.appendChild(document.createTextNode(computer.title));
-    select.appendChild(computerElement);
+        const computerElement = document.createElement("option");
+        computerElement.appendChild(document.createTextNode(computer.title));
+        selectComputerElement.appendChild(computerElement);  
+        document.getElementById("computerFeatures").innerText = computer.specs;           
     }
-})
-// function setSelectedComputer()//This method will populate selet list with data from array.
-// {
     
-// }
+})
+
 
 //FORTSÄTT MED ATT LAGRA DATA PÅ STORE. BÖRJA MED SELECT LIST
 

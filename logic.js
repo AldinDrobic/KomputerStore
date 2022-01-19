@@ -100,12 +100,9 @@ fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
 {
     for (computer of getArray) {
         computerArray.push(computer);
-    }
-
-    
+    }  
 })
-
-function setSelectedComputer()//This method will populate selet list with data from array.
+.then(function() //This function will populate select list with data from array.
 {
     for (computer of computerArray) 
     {         
@@ -113,7 +110,11 @@ function setSelectedComputer()//This method will populate selet list with data f
     computerElement.appendChild(document.createTextNode(computer.title));
     select.appendChild(computerElement);
     }
-}
+})
+// function setSelectedComputer()//This method will populate selet list with data from array.
+// {
+    
+// }
 
 //FORTSÄTT MED ATT LAGRA DATA PÅ STORE. BÖRJA MED SELECT LIST
 

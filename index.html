@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="indexStyle.css">
 </head>
 <body>
-    
+    <div class="flex-container">
+        <div id="navBar">Komputer Store</div>    
+    </div>
     <div class="flex-container">
      <div class="flex-child" id="Bank">
         <h1>Bank account</h1>
@@ -16,7 +18,7 @@
         <span>Balance:</span> <span id="balance">0</span> <span>kr</span> <br><br>
         <div id="outstandingLoanDiv">
             <span>Outstanding loan</span> <span id="outstandingLoan">0</span> <span>kr</span>  <br>
-            <button class="btn" id="loanBtn" onclick="repayLoan()">Repay loan</button>  <br>           
+            <button class="btn" id="repayLoanBtn" onclick="repayLoan()">Repay loan</button>  <br>           
         </div>
             <button class="btn" id="getLoanBtn" onclick="getLoan()">Get loan</button> <br><br>        
      </div>
@@ -24,30 +26,40 @@
         <div class="flex-child" id="Work">
             <h1>Work</h1>
             <b>Pay:</b> <b id="pay">0</b> <b>kr</b> <br><br>          
-            <button onclick="transferPayToBank()">Bank</button> <br><br>
-            <button onclick="incrementPay()">Work</button> <br><br>       
+            <button class="btn" id="bankBtn" onclick="transferPayToBank()">Bank</button>
+            <button class="btn" id="workBtn" onclick="incrementPay()">Work</button> <br><br>       
         </div>
 
-        <div class="flex-child">
-        <div id="StorePreview">
+        <div class="flex-child" id="StorePreview">
             <h1>Store</h1>
             <select name="computer" id="computerListId" onchange="setSelectedComputer()"></select> <br><br>
             <b id="computerFeatures">Desc</b>
     
-        </div> <br><br>
-    
-    
-        <div id="StoreFullView">
-            <h2 id="computerTitle">Titel</h2>
-            <b id="computerDescription">Description</b><br>
-            <b id="computerPrice">Price</b> <b>kr</b><br><br>
-            <img class="imageComputer" id="computerImage">
-            <button onclick="buyComputer()">Buy now</button>
-    
-            <br><br>
+        </div> <br><br>   
+    </div>
+
+        <div class="storeContainer" id="StoreFullView">  
+            <div class="storeContainer-child">
+                <img class="imageComputer" id="computerImage">        
+            </div>               
+           
+            <div class="storeContainer-child">
+                <span id="computerTitle">Titel</span> <br><br>
+                <span id="computerDescription">Description</span><br>
+            </div>
+           
+            <div class="storeContainer-child">
+                <br><br><br>
+                <b id="computerPrice">Price</b> <b>kr</b><br><br>
+                <button id="buyNowBtn" class="btn" onclick="buyComputer()">Buy now</button>
+            </div>
         </div>
-    </div>
-    </div>
+
+            
+
+
+   
+    
         <script src="logic.js"></script>
 </body>
 </html>

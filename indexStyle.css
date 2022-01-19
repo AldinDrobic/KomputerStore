@@ -2,27 +2,72 @@ body
 {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+#navBar
+{
+    background-color: black;
+    width: 100%;
+    color: white;
+    font-size: 20pt;
+    height: 40px;
+    padding-left: 10px;
+    padding-top: 5px;
+}
 #outstandingLoanDiv
 {
     display: none;
 }
-.flex-container {
+.flex-container 
+{
     display: flex;
+    margin: 5px;
+    
 }
-.flex-child {
+.flex-child 
+{
     flex: 1;
-    border: 2px solid yellow;
+    border-radius: 10px;
     margin-right: 5px;
     margin-left: 5px;
     padding-top: 5px;
     padding-left: 10px;
     padding-right: 10px;
-} 
+    background-color: lightgray;
+}
+.storeContainer
+{
+    width: 100%;
+    border-radius: 10px;
+    background-color: lightgray;
+    margin-right: 5px;
+    margin-left: 5px;
+    padding-top: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-flex;
+}
+.storeContainer-child
+{
+    flex: 1;
+}
+#computerTitle
+{
+    font-size: 25pt;
+}
+#computerPrice
+{
+    font-size: 20pt;
+}
+
+
 .imageComputer
 {
     height: 200px;
     width: 300px;
+    border-radius: 5px;
 }
+
+
+/* Buttons */
 .btn
 {
     border: none;
@@ -36,11 +81,26 @@ body
     border-radius: 5px;
     margin: 5px;
 }
-
-/* Buttons */
 #getLoanBtn
 {
-    background-color: #5ed410; /* Green */
+    background-color: #5ed410; 
+}
+#repayLoanBtn
+{
+    background-color: #eb1010; 
+}
+#bankBtn
+{
+    background-color: #fbff00; 
+}
+#workBtn
+{
+    background-color: #1e06f5; 
+    color:white;
+}
+#buyNowBtn
+{
+    background-color: #069df5; 
 }
 
 

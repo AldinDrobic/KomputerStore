@@ -107,18 +107,21 @@ fetch("https://noroff-komputer-store-api.herokuapp.com/computers")
     for (computer of computerArray) 
     {         
         const computerElement = document.createElement("option");
-        computerElement.value = computer.id;//We mabye don't need this.
+        computerElement.value = computer.id;
         computerElement.appendChild(document.createTextNode(computer.title));
         selectComputerElement.appendChild(computerElement);  
-        document.getElementById("computerFeatures").innerText = computerArray[selectComputerElement.value-1].specs;   
+        // document.getElementById("computerFeatures").innerText = computerArray[selectComputerElement.value-1].specs; //Setting description, it is -1 beacuse we are referencing index num inside the array 
     }
-
+    setSelectedComputer()//This must run here for the first time so that the computer data will be shown in html.
 })
 
 function setSelectedComputer()
 {
-    document.getElementById("computerFeatures").innerText = computerArray[selectComputerElement.value-1].specs; 
-    
+    document.getElementById("computerFeatures").innerText = computerArray[selectComputerElement.value-1].specs; //Setting description, it is -1 beacuse we are referencing index num inside the array 
+    document.getElementById("computerTitle").innerText = computerArray[selectComputerElement.value-1].title;
+    document.getElementById("computerDescription").innerText = computerArray[selectComputerElement.value-1].description;
+    document.getElementById("computerPrice").innerText = computerArray[selectComputerElement.value-1].price;
+    document.getElementById("computerImage").src = "https://noroff-komputer-store-api.herokuapp.com/"  + computerArray[selectComputerElement.value-1].image;
 }
 
 

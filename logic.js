@@ -14,10 +14,14 @@ function transferPayToBank()
 {
     function repayLoanByPay()//If we have a loan this function will repay the loan when the pay is transfered from pay to bank.
     {
+        console.log("Repayloan bool: " + isRepayLoan);
         if (isRepayLoan){
             let reservedDeduction = 0.1 * pay; //Deduction is where the 10% of the pay amount is saved so it can be reserved for the outstanding loan.
+            console.log("reserved deduction: " + reservedDeduction);
             outstandingLoan -= reservedDeduction; //Here is where the deduction is subtracted with the outstanding loan.
+            console.log("Outstanding loan: " + outstandingLoan)
             pay -= reservedDeduction; //Drag of the 10% deduction from pay beacuse the 10% went to the outstanding loan.
+            console.log("Pay: " + pay);
             if (outstandingLoan < 0) //If deduction is bigger than outstanding loan (outstanding loan = 10 && reservedDeduction == 15) then it will be negative. If this happens we want to return the money that is overflowing to Joe.
             {
                 pay += (outstandingLoan * (-1)) //Multiply with -1 so the negative number will be positive. Then add it to the bank.                
@@ -87,7 +91,10 @@ function repayLoan(){
         outstandingLoan = document.getElementById("outstandingLoan").innerText;
         pay -= outstandingLoan;
         outstandingLoan = 0;
+        balance += pay;
+        pay = 0;
         isRepayLoan = false; //Set bool to true so that user cant make new loan until this one is repaid.
+        document.getElementById("balance").innerText = balance;
         document.getElementById("pay").innerText = pay;
         document.getElementById("outstandingLoan").innerText = outstandingLoan;       
         document.getElementById("outstandingLoanDiv").style.display = "none";
